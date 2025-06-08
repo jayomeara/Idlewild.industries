@@ -1,14 +1,14 @@
-// Cloudflare Worker for idlewild portfolio
+// cloudflare worker for idlewild portfolio
 
 const HTML_CONTENT = `<!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jay O'Meara - idlewild portfolio</title>
-    <meta name="description" content="Creative professional specializing in broadcast production, digital content strategy, and visual storytelling.">
-    <meta property="og:title" content="Jay O'Meara - idlewild portfolio">
-    <meta property="og:description" content="Creative professional specializing in broadcast production, digital content strategy, and visual storytelling.">
+    <title>jay o'meara - idlewild portfolio</title>
+    <meta name="description" content="creative film editor">
+    <meta property="og:title" content="jay o'meara - idlewild portfolio">
+    <meta property="og:description" content="creative film editor">
     <meta property="og:type" content="website">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,11 +68,27 @@ const HTML_CONTENT = `<!DOCTYPE html>
                     animation: {
                         'fade-in': 'fadeIn 0.8s ease-out',
                         'slide-up': 'slideUp 0.6s ease-out',
-                    }
+                    },
+                    // Example of new Tailwind features (v3.4+)
+                    colors: {
+                        'brand': '#0ea5e9',
+                    },
+                    borderRadius: {
+                        'xl': '1.25rem',
+                        '2xl': '2rem',
+                    },
                 }
-            }
+            },
+            plugins: [
+                // Example: add aspect-ratio and typography plugins
+                tailwindcssAspectRatio,
+                tailwindcssTypography,
+            ]
         }
     </script>
+    <!-- Tailwind plugins CDN for demo (remove if using local build) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/aspect-ratio"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/typography"></script>
 </head>
 
 <body class="bg-black text-white antialiased overflow-x-hidden">
@@ -84,8 +100,8 @@ const HTML_CONTENT = `<!DOCTYPE html>
                     idlewild portfolio
                 </a>
                 <div class="hidden md:flex space-x-8 text-sm">
-                    <a href="#work" class="hover:text-zinc-300 transition-colors">Work</a>
-                    <a href="#contact" class="hover:text-zinc-300 transition-colors">Contact</a>
+                    <a href="#work" class="hover:text-zinc-300 transition-colors">work</a>
+                    <a href="#contact" class="hover:text-zinc-300 transition-colors">contact</a>
                 </div>
                 <button class="md:hidden w-6 h-6 flex flex-col justify-center space-y-1">
                     <span class="w-6 h-0.5 bg-white transition-all"></span>
@@ -100,13 +116,13 @@ const HTML_CONTENT = `<!DOCTYPE html>
     <section class="min-h-screen flex items-center justify-center px-6">
         <div class="max-w-4xl mx-auto text-center">
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-8 gradient-text smooth-appear tracking-tight">
-                Jay O'Meara
+                jay o'meara
             </h1>
             <p class="text-lg md:text-xl text-zinc-400 mb-12 max-w-2xl mx-auto leading-relaxed smooth-appear stagger-1">
-                Creative professional specializing in broadcast production, digital content strategy, and visual storytelling.
+                creative film editor
             </p>
             <a href="#work" class="inline-flex items-center px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-zinc-200 transition-all duration-300 hover:scale-105 smooth-appear stagger-2">
-                View Work
+                view work
                 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                 </svg>
@@ -118,7 +134,7 @@ const HTML_CONTENT = `<!DOCTYPE html>
     <section id="work" class="py-20 px-6">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center tracking-tight">
-                Selected Work
+                selected work
             </h2>
             
             <!-- Primary Grid -->
@@ -128,14 +144,14 @@ const HTML_CONTENT = `<!DOCTYPE html>
                     <div class="aspect-video">
                         <iframe 
                             src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                            title="Broadcast Production Reel"
+                            title="broadcast production reel"
                             class="w-full h-full"
                             allowfullscreen>
                         </iframe>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Broadcast Production</h3>
-                        <p class="text-zinc-400 text-sm">Live sports coverage and studio productions</p>
+                        <h3 class="text-xl font-semibold mb-2">broadcast production</h3>
+                        <p class="text-zinc-400 text-sm">live sports coverage and studio productions</p>
                     </div>
                 </div>
 
@@ -144,14 +160,14 @@ const HTML_CONTENT = `<!DOCTYPE html>
                     <div class="aspect-video">
                         <iframe 
                             src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                            title="Social Media Campaign"
+                            title="social media campaign"
                             class="w-full h-full"
                             allowfullscreen>
                         </iframe>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Social Strategy</h3>
-                        <p class="text-zinc-400 text-sm">Multi-platform content campaigns</p>
+                        <h3 class="text-xl font-semibold mb-2">social strategy</h3>
+                        <p class="text-zinc-400 text-sm">multi-platform content campaigns</p>
                     </div>
                 </div>
             </div>
@@ -163,14 +179,14 @@ const HTML_CONTENT = `<!DOCTYPE html>
                     <div class="aspect-video">
                         <iframe 
                             src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                            title="Documentary Work"
+                            title="documentary work"
                             class="w-full h-full"
                             allowfullscreen>
                         </iframe>
                     </div>
                     <div class="p-4">
-                        <h4 class="font-medium mb-1">Documentary</h4>
-                        <p class="text-zinc-400 text-xs">Long-form storytelling</p>
+                        <h4 class="font-medium mb-1">documentary</h4>
+                        <p class="text-zinc-400 text-xs">long-form storytelling</p>
                     </div>
                 </div>
 
@@ -179,14 +195,14 @@ const HTML_CONTENT = `<!DOCTYPE html>
                     <div class="aspect-video">
                         <iframe 
                             src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                            title="Commercial Work"
+                            title="commercial work"
                             class="w-full h-full"
                             allowfullscreen>
                         </iframe>
                     </div>
                     <div class="p-4">
-                        <h4 class="font-medium mb-1">Commercial</h4>
-                        <p class="text-zinc-400 text-xs">Brand-focused content</p>
+                        <h4 class="font-medium mb-1">commercial</h4>
+                        <p class="text-zinc-400 text-xs">brand-focused content</p>
                     </div>
                 </div>
 
@@ -195,14 +211,14 @@ const HTML_CONTENT = `<!DOCTYPE html>
                     <div class="aspect-video">
                         <iframe 
                             src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                            title="Event Coverage"
+                            title="event coverage"
                             class="w-full h-full"
                             allowfullscreen>
                         </iframe>
                     </div>
                     <div class="p-4">
-                        <h4 class="font-medium mb-1">Events</h4>
-                        <p class="text-zinc-400 text-xs">Live event production</p>
+                        <h4 class="font-medium mb-1">events</h4>
+                        <p class="text-zinc-400 text-xs">live event production</p>
                     </div>
                 </div>
             </div>
@@ -212,7 +228,7 @@ const HTML_CONTENT = `<!DOCTYPE html>
                 <div class="video-hover bg-zinc-900 rounded-lg overflow-hidden aspect-video smooth-appear">
                     <iframe 
                         src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                        title="Project 6"
+                        title="project 6"
                         class="w-full h-full"
                         allowfullscreen>
                     </iframe>
@@ -220,7 +236,7 @@ const HTML_CONTENT = `<!DOCTYPE html>
                 <div class="video-hover bg-zinc-900 rounded-lg overflow-hidden aspect-video smooth-appear">
                     <iframe 
                         src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                        title="Project 7"
+                        title="project 7"
                         class="w-full h-full"
                         allowfullscreen>
                     </iframe>
@@ -228,7 +244,7 @@ const HTML_CONTENT = `<!DOCTYPE html>
                 <div class="video-hover bg-zinc-900 rounded-lg overflow-hidden aspect-video smooth-appear">
                     <iframe 
                         src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                        title="Project 8"
+                        title="project 8"
                         class="w-full h-full"
                         allowfullscreen>
                     </iframe>
@@ -236,7 +252,7 @@ const HTML_CONTENT = `<!DOCTYPE html>
                 <div class="video-hover bg-zinc-900 rounded-lg overflow-hidden aspect-video smooth-appear">
                     <iframe 
                         src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                        title="Project 9"
+                        title="project 9"
                         class="w-full h-full"
                         allowfullscreen>
                     </iframe>
@@ -249,28 +265,28 @@ const HTML_CONTENT = `<!DOCTYPE html>
     <section class="py-20 px-6 bg-zinc-900/50">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-8 tracking-tight">
-                Creative Professional
+                creative professional
             </h2>
             <p class="text-lg md:text-xl text-zinc-400 leading-relaxed mb-12 max-w-3xl mx-auto">
-                Specialized in creating compelling visual narratives across broadcast, digital, and strategic content platforms. 
-                From live sports production to multi-platform campaigns, I deliver measurable results through creative excellence.
+                specialized in creating compelling visual narratives across broadcast, digital, and strategic content platforms. 
+                from live sports production to multi-platform campaigns, i deliver measurable results through creative excellence.
             </p>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div>
                     <div class="text-2xl font-bold mb-2">50+</div>
-                    <div class="text-zinc-400 text-sm">Projects</div>
+                    <div class="text-zinc-400 text-sm">projects</div>
                 </div>
                 <div>
                     <div class="text-2xl font-bold mb-2">5+</div>
-                    <div class="text-zinc-400 text-sm">Years</div>
+                    <div class="text-zinc-400 text-sm">years</div>
                 </div>
                 <div>
                     <div class="text-2xl font-bold mb-2">10+</div>
-                    <div class="text-zinc-400 text-sm">Clients</div>
+                    <div class="text-zinc-400 text-sm">clients</div>
                 </div>
                 <div>
                     <div class="text-2xl font-bold mb-2">100%</div>
-                    <div class="text-zinc-400 text-sm">Passion</div>
+                    <div class="text-zinc-400 text-sm">passion</div>
                 </div>
             </div>
         </div>
@@ -280,10 +296,10 @@ const HTML_CONTENT = `<!DOCTYPE html>
     <section id="contact" class="py-20 px-6">
         <div class="max-w-2xl mx-auto text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-8 tracking-tight">
-                Let's Work Together
+                let's work together
             </h2>
             <p class="text-lg text-zinc-400 mb-12 leading-relaxed">
-                Ready to create something exceptional? Get in touch to discuss your next project.
+                ready to create something exceptional? get in touch to discuss your next project.
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -293,19 +309,19 @@ const HTML_CONTENT = `<!DOCTYPE html>
                         <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
                         <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                     </svg>
-                    Email Me
+                    email me
                 </a>
                 <a href="#" 
                    class="inline-flex items-center justify-center px-8 py-4 border border-zinc-600 text-white font-semibold rounded-full hover:bg-zinc-800 transition-all duration-300">
                     <svg class="mr-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
                     </svg>
-                    LinkedIn
+                    linkedin
                 </a>
             </div>
             
             <p class="text-sm text-zinc-500">
-                jay@idlewild.portfolio • Available for freelance projects
+                jay@idlewild.portfolio • available for freelance projects
             </p>
         </div>
     </section>
@@ -314,7 +330,7 @@ const HTML_CONTENT = `<!DOCTYPE html>
     <footer class="py-8 px-6 border-t border-zinc-800">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
             <div class="text-sm text-zinc-500 mb-4 md:mb-0">
-                © 2025 idlewild portfolio. All rights reserved.
+                © 2025 idlewild portfolio. all rights reserved.
             </div>
             <div class="flex space-x-6">
                 <a href="#" class="text-zinc-500 hover:text-white transition-colors">
@@ -375,12 +391,12 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     
-    // Handle different routes
+    // handle different routes
     if (url.pathname === '/' || url.pathname === '/index.html') {
       return new Response(HTML_CONTENT, {
         headers: {
           'Content-Type': 'text/html; charset=utf-8',
-          'Cache-Control': 'public, max-age=86400', // Cache for 24 hours
+          'Cache-Control': 'public, max-age=86400', // cache for 24 hours
           'X-Content-Type-Options': 'nosniff',
           'X-Frame-Options': 'DENY',
           'X-XSS-Protection': '1; mode=block',
@@ -388,8 +404,8 @@ export default {
       });
     }
     
-    // Return 404 for other routes
-    return new Response('404 Not Found', { 
+    // return 404 for other routes
+    return new Response('404 not found', { 
       status: 404,
       headers: {
         'Content-Type': 'text/plain',
