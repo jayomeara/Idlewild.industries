@@ -1,0 +1,19 @@
+name = "idlewild-portfolio"
+main = "index.js"
+compatibility_date = "2024-12-01"
+
+# Custom domain configuration
+[[routes]]
+pattern = "idlewild.industries/*"
+zone_name = "idlewild.industries"
+
+[[routes]]
+pattern = "www.idlewild.industries/*"
+zone_name = "idlewild.industries"
+
+# Environment variables (optional)
+[env.production]
+name = "idlewild-portfolio"
+
+[env.staging]
+name = "idlewild-portfolio-staging"
